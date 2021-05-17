@@ -1,0 +1,33 @@
+.container #jm{
+  margin-top: 20%;
+  background:#32a883;
+  color: black;
+  font-family: 'Noto Serif', serif;
+}
+#jm #btnone{
+  margin-right:  20px;
+
+
+}
+body{
+  background:url(https://images.unsplash.com/photo-1621185610795-dc6669abd01d?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8NnNNVmpUTFNrZVF8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+form{
+border:2px groove orange;
+color:red;
+padding:100px;
+font-size:20px;
+margin: 20px;
+}
+#frmho{
+  color:red;
+
+}
+#tdata{
+  color:red;
+}
+#tdata table td{
+  font-size:20px;
+}

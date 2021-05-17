@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/movies.css" %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="containe" align="center">
+      <h1>MOVIE INFORMATION</h1>
+      {% if movielist %}
+      <div id="tdata">
+         <table id="tb">
+
+           <thead>
+           <th>RELASED DATE</th>
+           <th>MOVIE NAME</th>
+           <th>HERO</th>
+           <th>HEROINE</th>
+           <th>RATING</th>
+           </thead>
+           {% for movie in movielist %}
+           <tr>
+
+               <td>{{movie.rdate}}</td>
+               <td>{{movie.moviename}}<</td>
+               <td>{{movie.hero}}<</td>
+               <td>{{movie.heroine}}<</td>
+               <td>{{movie.rating}}<</td>
+
+
+           </tr>
+           {% endfor %}
+         </table>
+         {% else %}
+         <p>NO MOVIE FOUND</p>
+         {%endif%}
+   </div>
+    </div>
+
+  </body>
+</html>

@@ -11,5 +11,5 @@ def feedback(request):
         print(form.cleaned_data['rollno'])
         print(form.cleaned_data['email'])
         print(form.cleaned_data['feedback'])
-        
+        return render(request, 'feedapp/feedback.html', {'form':form})
     return render(request, 'feedapp/feedback.html', {'form':form})
