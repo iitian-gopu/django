@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+    {% load cust_filters%}
+    {% for r in datalist %}
+    <ul>
+      <li>{{r.name|trunacten:2}}</li>
+      <li>{{r.subject|upper}}</li>
+      <li>{{r.dept|upper}}</li>
+      <li>{{r.date|timesince}}</li>
+      <hr>
+    </ul>
+    {% endfor %}
+  </body>
+</html>
