@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+{% block body_block %}
+<h1>List of All Companies </h1><br><hr>
+{% for comp in company_list %}
+<a href="{{comp.id}}" class="btn btn-primary "><h2>{{comp.name}} </h2></a><br><br>
+{%endfor%}
+<hr>
+<a href="/create" class="btn btn-primary btn-lg">Insert</a>
+{% endblock %}
