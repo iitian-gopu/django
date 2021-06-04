@@ -1,0 +1,73 @@
+{% extends 'blogapp/base.html' %}
+ {% block content %}
+ {% load crispy_forms_tags %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <img src="{{post.image.url}}" alt="" width=700 height=600>
+        <h1>{% block title %} {{ post.title|title }} {% endblock title %}</h1>
+        <p class=" text-muted">{{ post.author }} | {{ post.created }}</p>
+        <p class="card-text ">{{ post.body | safe }}</p>
+      </div>
+    </div>
+    {% block sidebar %} {% include 'blogapp/sidebar.html' %} {% endblock sidebar %}
+  </div>
+  <div class="container" align="center">
+  <a href="/{{post.id}}/share" class="btn btn-lg btn-success"  >Share Post By Email</a>
+</div>
+</div>
+<div class="col-md-8 card mb-4  mt-3 ">
+  <div class="card-body">
+
+{% with comments.count as comments_count %}
+<h2>{{ comments_count}} Comment{{comments_count|pluralize}}</h2>
+{% if comments %}
+{% for comment in comments %}
+        <div class="comments" style="padding: 10px;">
+          <p class="font-weight-bold">
+            {{ comment.name }}
+            <span class=" text-muted font-weight-normal">
+              {{ comment.created_on }}
+            </span>
+          </p>
+          {{ comment.body | linebreaks }}
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="comments" style="padding: 10px;">
+          <p class="font-weight-bold">
+            No Comments Yet!!!
+          </p>
+        </div>
+        {% endif %}
+        {% if csubmit %}
+        
+        <div class="comments" style="padding: 10px;">
+          <p class="font-weight-bold">
+            <div class="alert alert-success" role="alert">
+            Your Comments Added Successfully
+          </p>
+        </div>
+      </div>
+        {% else %}
+        <div class="col-md-8 card mb-4  mt-3 ">
+          <div class="card-body">
+           
+            
+            <h3>Leave a comment</h3>
+            <form method="post" style="margin-top: 1.3em">
+              {{ comment_form|crispy}}
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+            </form>
+           
+          </div>
+        </div>
+        {% endif %}
+        
+</div>
+</div>
+{% endwith %}
+{% endblock content %}
